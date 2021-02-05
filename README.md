@@ -30,3 +30,4 @@ This project will consist of a web application designed to mimmick certain featu
 * Django
 * React
 * Javascript
+* Bootstrap
