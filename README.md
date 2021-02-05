@@ -1,4 +1,4 @@
-# SOEN341Project
+# Pigeon Post - A SOEN341Project
 
 ## Objective
 
@@ -16,13 +16,13 @@ This project will consist of a web application designed to mimmick certain featu
 
 ## Team Members
 
-* Ahmad Abunada (Ahmad-ConU)
-* Hakim Sheriff (hakimsheriff)
-* Aseel Meeran Babu Hussain (AseelAce) 
-* Lucas Silva (Lucas-ConU)
-* Waleed Iqbal (WaleedIqbal99)
-* Yasser Edebbab (timotei1)
-* Fatima El Fouladi (seaiam)
+* Ahmad Abunada (@Ahmad-ConU)
+* Hakim Sheriff (@hakimsheriff)
+* Aseel Meeran Babu Hussain (@AseelAce) 
+* Lucas Silva (@Lucas-ConU)
+* Waleed Iqbal (@WaleedIqbal99)
+* Yasser Edebbab (@timotei1)
+* Fatima El Fouladi (@seaiam)
 
 ## Technologies
 
@@ -31,3 +31,56 @@ This project will consist of a web application designed to mimmick certain featu
 * React
 * Javascript
 * Bootstrap
+* Axios
+
+## Dependecy Installation Instructions
+
+First, you must install Python from https://www.python.org/downloads/. 
+The version that has been tested is 3.9.1.
+
+We will use pip to install dependencies.
+
+To install pip, download https://bootstrap.pypa.io/get-pip.py and run
+
+    python get-pip.py
+
+It is recomended to run this server with Pipenv. To install and start Pipenv:
+
+    pip install pipenv
+
+    pipenv shell
+
+To install Django:
+
+    pipenv install django
+
+To install the Django APIs:
+
+    pipenv install djangorestframework
+
+To install components related to our frontend, we will use NPM.
+
+To use our react framework, we will use yarn, which can be installed as follows: 
+
+    npm install --global yarn
+
+## Starting the Application Server
+
+#### Backend
+
+To start the Django backend, enter the backend directory with `cd backend` and run:
+
+    python manage.py runserver
+
+The django server will run on http://localhost:8000/
+
+#### Frontend
+
+To start the React frontend, enter the frontend directory with `cd frontend` and run:
+
+    yarn start
+
+The webpage will be visible on http://localhost:3000/
+
+
+
