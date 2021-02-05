@@ -26,4 +26,7 @@ This project will consist of a web application designed to mimmick certain featu
 
 ## Technologies
 
-* TBD
+* Python
+* Django
+* React
+* Javascript
