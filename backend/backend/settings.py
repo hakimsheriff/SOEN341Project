@@ -37,11 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',       
-    'rest_framework',  
-
-    'social_django', # Added for facebook log-in and registration
-    
-    'pigeonpost',
+    'rest_framework',         
+    'pigeonpost'
 ]
 
 MIDDLEWARE = [
@@ -52,20 +49,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware', # Added for facebook log-in and registration
 ]
-AUTHENTICATION_BACKENDS = ( # Added for facebook log-in and registration
-    'social_core.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [], 
-
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,8 +64,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',  # Added for facebooki log-in and registration
-                'social_django.context_processors.login_redirect', # Added for facebooki log-in and registration
             ],
         },
     },
@@ -136,10 +125,5 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
      'localhost:3000/'
  )
-SOCIAL_AUTH_FACEBOOK_KEY = '241752144288042'      # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'b4ea2816043bd9b9f31f13a9f958d438'  # App Secret
-
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = 'login'
+ 
+ 
