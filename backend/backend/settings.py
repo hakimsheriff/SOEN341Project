@@ -36,8 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',       
-    'rest_framework',         
+    'django.contrib.staticfiles',
+    'rest_framework',
     'pigeonpost'
 ]
 
@@ -125,5 +125,8 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = (
      'localhost:3000/'
  )
- 
- 
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
