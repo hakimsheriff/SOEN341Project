@@ -14,9 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-from django.contrib.auth import views as auth_views
 from pigeonpost import views as core_views
-from django.views.generic import TemplateView
 from django.contrib.auth.views import LoginView, LogoutView
 urlpatterns = [
     url(r'^$', core_views.home, name='home'),
