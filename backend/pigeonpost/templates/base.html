@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="utf-8">
-    <title>{% block title %}PewPew{% endblock %}</title>
+    <title>{% block title %}PigeonPost{% endblock %}</title>
   </head>
+
   <body>
-    <header>
-      <h1>PigeonPost</h1>
-      {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">logout</a>
-      {% else %}
-        <a href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">signup</a>
-      {% endif %}
-      <hr>
-    </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-light main-nav border-bottom border-secondary">
+      <div class="container">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}"><img src="../static/images/PigeonClipart.jpg" alt="PigeonClipart"
+                style="width:100px;"></a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}"><img src="../static/images/PigeonPostText.png" alt="PigeonPost"
+               style="width:250px;"></a>
+            </li>
+          </ul>
+          {% if user.is_authenticated %}
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link text-secondary" href="{% url 'logout' %}">Log Out</a>
+              </li>
+            </ul>
+          {% else %}
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link text-secondary" href="{% url 'login' %}">Log In</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-secondary" href="{% url 'signup' %}">Sign Up</a>
+              </li>
+            </ul>
+          {% endif %}
+      </div>
+    </nav>
+
     <main>
       {% block content %}
       {% endblock %}

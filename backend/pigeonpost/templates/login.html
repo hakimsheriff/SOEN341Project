@@ -1,26 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Log in to PigeonPost</h2>
-  {% if form.errors %}
-    <p style="color: red">Your username and password didn't match. Please try again.</p>
-  {% endif %}
-  <form method="post">
-    {% csrf_token %}
-    <input type="hidden" name="next" value="{{ next }}" />
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-               {{ field }}<br>
-               {% for error in field.errors %}
-                 <p style="color: red">{{ error }}</p>
-               {% endfor %}
-               {% if field.help_text %}
-                 <p><small style="color: grey">{{ field.help_text }}</small></p>
-               {% endif %}
-      </p>
-    {% endfor %}
-    <button type="submit">Log in</button>
-    <a href="{% url 'signup' %}">Not a Pigeon yet? Sign up</a>
-  </form>
+  <div style="background: url(../static/images/CitySkyline.jpg); min-height: 1000px; background-size: cover; background-position: top; background-repeat: no-repeat;" class="page-holder bg-cover">
+    <div style="margin: auto;"></div>
+    <div class="container row justify-content-center align-self-center" style="margin: auto;">
+      <div class="card border-0 shadow my-5 align-items-center" style="height: auto;">
+        <div class="card-body p-5">
+          <h2>Log in to Pigeon Post</h2>
+          {% if form.errors %}
+            <p style="color: red">Your username and password didn't match. Please try again.</p>
+          {% endif %}
+          <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            {% for field in form %}
+              <p>
+                {{ field.label_tag }}<br>
+                      {{ field }}<br>
+                      {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                      {% endfor %}
+                      {% if field.help_text %}
+                        <p><small style="color: grey">{{ field.help_text }}</small></p>
+                      {% endif %}
+              </p>
+            {% endfor %}
+            <button type="submit" class="btn btn-secondary">Log in</button>
+            <div class="card-footer"></div>
+              <a href="{% url 'signup' %}">Not a Pigeon yet? Sign up</a>
+            </div>
+          </form>
+      </div>
+    </div>
+    </div>
+  </div>
 {% endblock %}
