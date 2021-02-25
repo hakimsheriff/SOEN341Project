@@ -16,18 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from pigeonpost import views as core_views
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib import admin
-from pigeonpost.views import push_feed , pusher_authentication
-from django.contrib.staticfiles.urls import static
-
 urlpatterns = [
     url(r'^$', core_views.home, name='home'),
     url(r'^login/$', LoginView.as_view(template_name = 'login.html'), name='login'),
     url(r'^logout$', LogoutView.as_view(),  name='logout'),
     url(r'^signup/$', core_views.signup, name='signup'),
-    url(r'^push_feed$', push_feed),
-    url(r'^pusher_authentication', pusher_authentication),
-    url(r'^admin/', admin.site.urls),
-    url(r'feed/', core_views.index, name='home'),
+
 
 ]
