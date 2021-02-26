@@ -16,11 +16,16 @@ Including another URLconf
 from django.conf.urls import url, include
 from pigeonpost import views as core_views
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib import admin
+
 urlpatterns = [
-    url(r'^$', core_views.home, name='home'),
+    url(r'^$', core_views.PostListView.as_view(), name='home'),
     url(r'^login/$', LoginView.as_view(template_name = 'login.html'), name='login'),
     url(r'^logout$', LogoutView.as_view(),  name='logout'),
     url(r'^signup/$', core_views.signup, name='signup'),
-
-
+	url(r'new/$', core_views.create_post, name='createPost'),
 ]
+
+
+
+
