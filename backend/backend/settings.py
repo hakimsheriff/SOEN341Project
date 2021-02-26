@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'pigeonpost'
+    'pigeonpost',
+    'crispy_forms', ## make sure to pip install django-crispy-forms
 ]
 
 MIDDLEWARE = [
