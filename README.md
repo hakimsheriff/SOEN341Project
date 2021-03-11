@@ -58,7 +58,22 @@ To install the Django APIs:
 
     pipenv install djangorestframework
 
+To install the Django APIs:
+
+    pipenv install djangorestframework
+
+To install the Django APIs:
+
+    pipenv install djangorestframework
+
+To install our imaging library
+    python -m pip install Pillow
+
+To install cripsy forms
+    pip install django-crispy-forms
+
 To install components related to our frontend, we will use NPM.
+
 
 To use our react framework, we will use yarn, which can be installed as follows: 
 
@@ -82,5 +97,7 @@ To start the React frontend, enter the frontend directory with `cd frontend` and
 
 The webpage will be visible on http://localhost:3000/
 
-
+### Important notes
+Before commiting anything the the project , make sure to go to the backend and run:
+    pip freeze >  requirements.txt
 
