@@ -50,27 +50,11 @@ It is recomended to run this server with Pipenv. To install and start Pipenv:
 
     pipenv shell
 
-To install Django:
+To install the dependencies required to run the backend server, from with the pipenv shell:
 
-    pipenv install django
-
-To install the Django APIs:
-
-    pipenv install djangorestframework
-
-To install the Django APIs:
-
-    pipenv install djangorestframework
-
-To install the Django APIs:
-
-    pipenv install djangorestframework
-
-To install our imaging library
-    python -m pip install Pillow
-
-To install cripsy forms
-    pip install django-crispy-forms
+	cd backend
+	
+	pip install -r requirements.txt
 
 To install components related to our frontend, we will use NPM.
 
