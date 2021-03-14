@@ -50,15 +50,14 @@ It is recomended to run this server with Pipenv. To install and start Pipenv:
 
     pipenv shell
 
-To install Django:
+To install the dependencies required to run the backend server, from with the pipenv shell:
 
-    pipenv install django
-
-To install the Django APIs:
-
-    pipenv install djangorestframework
+	cd backend
+	
+	pip install -r requirements.txt
 
 To install components related to our frontend, we will use NPM.
+
 
 To use our react framework, we will use yarn, which can be installed as follows: 
 
@@ -82,5 +81,7 @@ To start the React frontend, enter the frontend directory with `cd frontend` and
 
 The webpage will be visible on http://localhost:3000/
 
-
+### Important notes
+Before commiting anything the the project , make sure to go to the backend and run:
+    pip freeze >  requirements.txt
 
