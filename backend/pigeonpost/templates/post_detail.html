@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 	<div class="container">
 	    <div class="row">
@@ -16,13 +17,48 @@
 	          <br><p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
 	          {% endif %}
 	          <div class="card-footer">
-                {% if post.user_name == user %}
-				<a class="btn btn-outline-danger" href="{% url 'post-delete' post.id %}">Delete</a>
-				{% endif %}
 	          </div>
 	        </div>
 	  	   </div>
 	    </div>
 	    <br>
+		<h4>Comments</h4>
+	    <div class="row">
+	    	<div class="col-md-8">
+	    		<div class="card card-signin my-5">
+	    			<div class="card-body">
+	    				<form class="form-signin" method = "POST">
+	    					{% csrf_token %}
+				            <fieldset class="form-group"><br>
+				                {{ form|crispy }}
+				            </fieldset>
+				            <div class="form-group">
+				                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Comment</button><br>
+				            </div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-md-8">
+	    		{% if post.details.all %}
+	    		<div class="card card-signin my-5">
+	    		{% for detail in post.details.all %}
+	    			<div class="card-body">
+	    				<a href="{{ detail.username.profile.get_absolute_url }}">
+	    					<img src="{{ detail.username.profile.image.url }}" class="rounded-circle" width="30" height="30" alt="">
+	    				</a>
+	          			<a class="text-dark" href="{{ detail.username.profile.get_absolute_url }}"><b>{{ detail.username }}</b></a>
+	          			<br><small>{{ detail.comment_date }}</small><br><br>
+	          			<p class="card-text text-dark">{{ detail.comment }}</p>
+	    			</div>
+	    			<hr class="my-1">
+	    		{% endfor %}
+	    		</div>
+	    		{% else %}
+	    			<p>No comments to show!</p>
+	    		{% endif %}
+	    	</div>
+	    </div>
 	</div>
 {% endblock content %}
