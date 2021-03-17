@@ -15,13 +15,14 @@
             <br><br>
             <p class="card-text text-dark">{{ post.description }}</p>
           </div>
-          <img class="card-img-top" src="{{post.pic.url}}" alt="Picture not found"></a>
+          <a href="{% url 'post-detail' pk=post.pk%}"></a><img class="card-img-top" src="{{post.pic.url}}" alt="Picture not found"></a>
           {% if post.tags %}
           <br>
           <p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
           {% endif %}  
-        </div>
-        <div class="card-footer">
+          <div class="card-footer">
+            <a class="btn btn-outline-info" href="{% url 'post-detail' pk=post.pk %}">Comments | {{ post.details.count }}</a>
+          </div>
         </div>
         {% endfor %}
        </div>

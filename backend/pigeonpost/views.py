@@ -84,7 +84,7 @@ def post_detail(request, pk):
           return redirect('post-detail', pk=pk)
   else:
         form = NewCommentForm()
-  return render(request, 'feed/post_detail.html',{'post':post, 'is_liked':is_liked, 'form':form})
+  return render(request, 'post_detail.html',{'post':post, 'is_liked':is_liked, 'form':form})
 
 @login_required
 def create_post(request): ## this is for posting a picture
