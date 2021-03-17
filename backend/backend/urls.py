@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^logout$', LogoutView.as_view(),  name='logout'),
     url(r'^signup/$', core_views.signup, name='signup'),
 	url(r'new/$', core_views.create_post, name='createPost'),
-    path('post/<int:pk>/', core_views.post_detail, name='post-detail')
+    url(r'^post/(?P<pk>\d+)$', core_views.post_detail, name='post-detail')
 ]
 
 
