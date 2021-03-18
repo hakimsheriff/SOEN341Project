@@ -17,6 +17,9 @@
 	          <br><p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
 	          {% endif %}
 	          <div class="card-footer">
+				{% if post.user_name == user %}		
+                <a class="btn btn-outline-danger" href="{% url 'post-delete' pk=post.pk %}">Delete</a>
+                {% endif %}
 	          </div>
 	        </div>
 	  	   </div>

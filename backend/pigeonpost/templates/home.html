@@ -22,6 +22,9 @@
           {% endif %}  
           <div class="card-footer">
             <a class="btn btn-outline-info" href="{% url 'post-detail' pk=post.pk %}">Comments | {{ post.details.count }}</a>
+            {% if post.user_name == user %}		
+            <a class="btn btn-outline-danger" href="{% url 'post-delete' pk=post.pk %}">Delete</a>
+            {% endif %}
           </div>
         </div>
         {% endfor %}
