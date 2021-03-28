@@ -19,6 +19,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import admin
 from django.urls import path
 
+
 urlpatterns = [
     url(r'^$', core_views.PostListView.as_view(), name='home'),
     url(r'^login/$', LoginView.as_view(template_name = 'login.html'), name='login'),
@@ -27,7 +28,9 @@ urlpatterns = [
 	url(r'new/$', core_views.create_post, name='createPost'),
     url(r'^post/(?P<pk>\d+)$', core_views.post_detail, name='post-detail'),
     url(r'^admin/', admin.site.urls),
-    path('post/<int:pk>/delete/', core_views.post_delete, name='post-delete')
+    path('post/<int:pk>/delete/', core_views.post_delete, name='post-delete'),
+    url(r'^user_posts/(?P<username>\w+)$', core_views.UserPostListView.as_view(), name='user-posts'),
+
 ]
 
 

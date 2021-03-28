@@ -7,7 +7,7 @@
 	        <div class="card card-signin my-5">
 	          <div class="card-body">
 	          	<!-- <a href="{{ post.user_name.profile.get_absolute_url }}"><img src="{{ post.user_name.profile.image.url }}" class="rounded-circle" width="30" height="30" alt=""></a> -->
-	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
+	          	<a class="text-dark" href="{% url 'user-posts' username=post.user_name %}"><b>{{ post.user_name }}</b></a>
 	          	<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
 	          	<br><br>
 	            <p class="card-text text-dark">{{ post.description }}</p>
@@ -28,6 +28,7 @@
 	  	   </div>
 	    </div>
 	</div>
+
 
 {% if is_paginated %}
 
@@ -52,4 +53,7 @@
     {% endif %}
 
 
+
+
 {% endblock content %}
+
