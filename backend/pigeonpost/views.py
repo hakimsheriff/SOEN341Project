@@ -54,7 +54,7 @@ class PostListView(ListView):
 
 class UserPostListView(LoginRequiredMixin, ListView):	
   model = Post
-  template_name = 'feed/user_posts.html'
+  template_name = 'user_posts.html'
   context_object_name = 'posts'
   paginate_by = 10
 

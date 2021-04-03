@@ -17,6 +17,7 @@ class Post(models.Model):
     
     def get_absolute_url(self):
 		    return reverse('post-detail', kwargs={'pk': self.pk})
+    
 
 class Comments(models.Model):
    post = models.ForeignKey(Post, related_name='details', on_delete=models.CASCADE)
