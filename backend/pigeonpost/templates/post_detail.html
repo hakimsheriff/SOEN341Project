@@ -1,27 +1,31 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+
 	<div class="container">
 	    <div class="row">
 	      <div class="col-md-8">
-	        <div class="card card-signin my-5">
-	          <div class="card-body">
-	          	<!-- <a href="{{ post.user_name.profile.get_absolute_url }}"><img src="{{ post.user_name.profile.image.url }}" class="rounded-circle" width="30" height="30" alt=""></a> -->
-	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
-	          	<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
-	          	<br><br>
-	            <p class="card-text text-dark">{{ post.description }}</p>
-	          </div>
-	          <a href="{{ post.pic.url }}"><img class="card-img-top" src="{{ post.pic.url }}" alt=""></a>
-	          {% if post.tags %}
-	          <br><p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
-	          {% endif %}
-	          <div class="card-footer">
-				{% if post.user_name == user %}		
-                <a class="btn btn-outline-danger" href="{% url 'post-delete' pk=post.pk %}">Delete</a>
-                {% endif %}
-	          </div>
-	        </div>
+	       <div class="card card-signin my-5">
+            <div class="card-body">
+              <a href="{{ post.user_name.profile.get_absolute_url }}"></a>
+              <a class="text-dark" href="{% url 'user-posts' username=post.user_name %}"><b>{{ post.user_name }}</b></a>
+              <br><small class="text-muted">Posted on {{ post.date_posted }}</small>
+              <br><br>
+              <p class="card-text text-dark">{{ post.description }}</p>
+            </div>
+            <a href="{% url 'post-detail' pk=post.pk%}"></a><img class="card-img-top" src="{{post.pic.url}}" alt="Picture not found"></a>
+            {% if post.tags %}
+            <br>
+            <p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
+            {% endif %}  
+            <div class="card-footer">
+
+              <a class="btn btn-outline-info" href="{% url 'post-detail' pk=post.pk %}">Comments | {{ post.details.count }}</a>
+              {% if post.user_name == user %}		
+              <a class="btn btn-outline-danger" href="{% url 'post-delete' pk=post.pk %}">Delete</a>
+              {% endif %}
+            </div>
+          </div>
 	  	   </div>
 	    </div>
 	    <br>
@@ -65,3 +69,4 @@
 	    </div>
 	</div>
 {% endblock content %}
+

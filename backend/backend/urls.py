@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('post/<int:pk>/delete/', core_views.post_delete, name='post-delete'),
     url(r'^user_posts/(?P<username>\w+)$', core_views.UserPostListView.as_view(), name='user-posts'),
+    path('post/<int:pk>/like/', core_views.like, name='post-like'),
 
 ]
 
