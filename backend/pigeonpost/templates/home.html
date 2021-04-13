@@ -22,6 +22,25 @@
             <p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
             {% endif %}  
             <div class="card-footer">
+			<button class="btn btn-white mr-3 like" id="{{ post.id }}">
+            {% if post in liked_post %}
+            <a
+              href="{% url 'post-like' pk=post.pk %}"
+              style="color: red"
+              id="likebtn{{ post.id }}"
+            >
+              Unlike</a
+            >
+            | {{post.likes.count}} {% else %}
+            <a
+              href="{% url 'post-like' pk=post.pk %}"
+              style="color: green"
+              id="likebtn{{ post.id }}"
+            >
+              Like</a
+            >
+            | {{post.likes.count}} {% endif %}
+          </button>
               <a class="btn btn-outline-info" href="{% url 'post-detail' pk=post.pk %}">Comments | {{ post.details.count }}</a>
               {% if post.user_name == user %}		
               <a class="btn btn-outline-danger" href="{% url 'post-delete' pk=post.pk %}">Delete</a>
@@ -34,4 +53,5 @@
     </div>
   </div>
 
-{% endblock content %}
+{% endblock content %} 
+

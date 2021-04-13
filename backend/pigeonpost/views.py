@@ -107,3 +107,21 @@ def post_delete(request, pk):
 	if request.user== post.user_name:
 		Post.objects.get(pk=pk).delete()
 	return redirect('home') 
+    
+    
+    
+@login_required
+def like(request, pk):
+	#post_id = request.GET.get("likeId", "")
+	user = request.user
+	post = Post.objects.get(pk=pk)
+	liked= False
+	like = Like.objects.filter(user=user, post=post)
+	if like:
+		like.delete()
+	else:
+		liked = True
+		Like.objects.create(user=user, post=post)
+
+	return redirect('home') 
+
