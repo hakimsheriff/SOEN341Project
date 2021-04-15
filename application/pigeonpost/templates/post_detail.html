@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div style="background: url(../static/images/CitySkyline.jpg); min-height: 1000px; background-size: cover; background-position: top; background-repeat: no-repeat; background-attachment: fixed;" class="page-holder bg-cover">
+	<div class="container">
+	    <div class="row">
+	      <div class="col-md-8">
+	       <div class="card card-signin my-5">
+            <div class="card-body">
+              <a href="{{ post.user_name.profile.get_absolute_url }}"></a>
+              <a class="text-dark" href="{% url 'user-posts' username=post.user_name %}"><b>{{ post.user_name }}</b></a>
+              <br><small class="text-muted">Posted on {{ post.date_posted }}</small>
+              <br><br>
+              <p class="card-text text-dark">{{ post.description }}</p>
+            </div>
+            <a href="{% url 'post-detail' pk=post.pk%}"></a><img class="card-img-top" src="{{post.pic.url}}" alt="Picture not found"></a>
+            {% if post.tags %}
+            <br>
+            <p class="text-danger ml-3"><b>Tags: <i>{{ post.tags }}</i></b></p>
+            {% endif %}  
+            <div class="card-footer">
+
+              <a class="btn btn-outline-info" href="{% url 'post-detail' pk=post.pk %}">Comments | {{ post.details.count }}</a>
+              {% if post.user_name == user %}		
+              <a class="btn btn-outline-danger" href="{% url 'post-delete' pk=post.pk %}">Delete</a>
+              {% endif %}
+            </div>
+          </div>
+	  	   </div>
+	    </div>
+	    <br>
+		<h4>Comments</h4>
+	    <div class="row">
+	    	<div class="col-md-8">
+	    		<div class="card card-signin my-5">
+	    			<div class="card-body">
+	    				<form class="form-signin" method = "POST">
+	    					{% csrf_token %}
+				            <fieldset class="form-group"><br>
+				                {{ form|crispy }}
+				            </fieldset>
+				            <div class="form-group">
+				                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Comment</button><br>
+				            </div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-md-8">
+	    		{% if post.details.all %}
+	    		<div class="card card-signin my-5">
+	    		{% for detail in post.details.all %}
+	    			<div class="card-body">
+	    				<!-- <a href="{{ detail.username.profile.get_absolute_url }}">
+	    					<img src="{{ detail.username.profile.image.url }}" class="rounded-circle" width="30" height="30" alt=""> -->
+	    				</a>
+	          			<a class="text-dark" href="{{ detail.username.profile.get_absolute_url }}"><b>{{ detail.username }}</b></a>
+	          			<br><small>{{ detail.comment_date }}</small><br><br>
+	          			<p class="card-text text-dark">{{ detail.comment }}</p>
+	    			</div>
+	    			<hr class="my-1">
+	    		{% endfor %}
+	    		</div>
+	    		{% else %}
+	    			<p>No comments to show!</p>
+	    		{% endif %}
+	    	</div>
+	    </div>
+	</div>
+</div>
+{% endblock content %}
+
