@@ -48,7 +48,7 @@ It is recomended to run this server with Pipenv. To install and start Pipenv:
 
     pipenv shell
 
-To install the dependencies required to run the backend server, from with the pipenv shell:
+To install the dependencies required to run the application server, from with the pipenv shell:
 
 	cd application
 	
@@ -66,10 +66,10 @@ To start the Django server, enter the our application directory with `cd applica
 The django server will run on http://localhost:8000/
 
 #### Important notes
-Before commiting anything the the project , make sure to go to inside our application directory and run:
+Before commiting anything to the project, make sure to into our application directory and run:
     
 	pip freeze >  requirements.txt
-
+	
 ## Architecture 
 
 The following is a diagram of our application's architecture. It is of type "Model-View-Controller".
