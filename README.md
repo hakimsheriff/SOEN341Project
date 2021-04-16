@@ -17,6 +17,7 @@ This project will consist of a web application designed to mimmick certain featu
 
 ## Team Members
 
+* Ahmad Abunada (@Ahmad-ConU)
 * Hakim Sheriff (@hakimsheriff)
 * Aseel Meeran Babu Hussain (@AseelAce) 
 * Lucas Silva (@Lucas-ConU)
@@ -49,22 +50,46 @@ It is recomended to run this server with Pipenv. To install and start Pipenv:
 
 To install the dependencies required to run the backend server, from with the pipenv shell:
 
-	cd backend
+	cd application
 	
 	pip install -r requirements.txt
 
 
 ## Starting the Application Server
 
-#### Backend
+### Django Server
 
-To start the Django backend, enter the backend directory with `cd backend` and run:
+To start the Django server, enter the our application directory with `cd application` and run:
 
     python manage.py runserver
 
 The django server will run on http://localhost:8000/
 
-### Important notes
-Before commiting anything the the project , make sure to go to the backend and run:
-    pip freeze >  requirements.txt
+#### Important notes
+Before commiting anything the the project , make sure to go to inside our application directory and run:
+    
+	pip freeze >  requirements.txt
 
+## Architecture 
+
+The following is a diagram of our application's architecture. It is of type "Model-View-Controller".
+
+![Archicture Diagram](PigeonPostArchitecture.jpg?raw=true "Archicture Diagram")
+	
+## Testing
+
+#### Unit Tests
+
+To run our unit tests locally, run:
+
+    python manage.py test
+	
+This will run the unit tests defined in our tests.py file.
+
+#### Continous Integration Pipeline for Unit Tests
+
+Our project uses Travis-CI as our hosted continuous integration service. Travis-CI builds and runs our unit tests for every branch and pull request. Our Travis-CI page be be found here: https://www.travis-ci.com/github/hakimsheriff/SOEN341Project
+
+#### Acceptance Testing
+
+Acceptance tests for our project are defined in the GitHub Issue for that particular story. We verify that all criteria is met before considering a feature to be done.
