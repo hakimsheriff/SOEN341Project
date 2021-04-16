@@ -13,10 +13,10 @@ This project will consist of a web application designed to mimmick certain featu
 * Posting a picture (with a text description)
 * Leaving comments to posted pictures
 * Following a user
+* Liking a post
 
 ## Team Members
 
-* Ahmad Abunada (@Ahmad-ConU)
 * Hakim Sheriff (@hakimsheriff)
 * Aseel Meeran Babu Hussain (@AseelAce) 
 * Lucas Silva (@Lucas-ConU)
@@ -28,10 +28,7 @@ This project will consist of a web application designed to mimmick certain featu
 
 * Python
 * Django
-* React
-* Javascript
 * Bootstrap
-* Axios
 
 ## Dependecy Installation Instructions
 
@@ -56,12 +53,6 @@ To install the dependencies required to run the backend server, from with the pi
 	
 	pip install -r requirements.txt
 
-To install components related to our frontend, we will use NPM.
-
-
-To use our react framework, we will use yarn, which can be installed as follows: 
-
-    npm install --global yarn
 
 ## Starting the Application Server
 
@@ -72,14 +63,6 @@ To start the Django backend, enter the backend directory with `cd backend` and r
     python manage.py runserver
 
 The django server will run on http://localhost:8000/
-
-#### Frontend
-
-To start the React frontend, enter the frontend directory with `cd frontend` and run:
-
-    yarn start
-
-The webpage will be visible on http://localhost:3000/
 
 ### Important notes
 Before commiting anything the the project , make sure to go to the backend and run:
