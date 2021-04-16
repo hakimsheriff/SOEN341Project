@@ -5,7 +5,7 @@ env:
   -DJANGO=3.1.6
 
 before_install:
-  - cd backend
+  - cd application
 # command to install dependencies
 install:
   - pip install -r requirements.txt
