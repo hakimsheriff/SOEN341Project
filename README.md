@@ -74,7 +74,7 @@ Before commiting anything the the project , make sure to go to inside our applic
 
 The following is a diagram of our application's architecture. It is of type "Model-View-Controller".
 
-![Archicture Diagram](PigeonPostArchitecture.jpg?raw=true "Archicture Diagram")
+![Architecture Diagram](PigeonPostArchitecture.JPG?raw=true "Architecture Diagram")
 	
 ## Testing
 
